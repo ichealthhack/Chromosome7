@@ -4,16 +4,17 @@ using UnityEngine;
 
 public class ShootController : MonoBehaviour {
     public GameObject shotPrefab;
+    public AudioClip shotSound;
     public float fireRate;
     private float nextFire;
 
     public float maxParticleRate;
     public float maxChargeRate;
-    public float chargeRate;
+    private float chargeRate;
     public ParticleSystem chargePS;
 
     public float maxCharge = 1f;
-    public float charge = 0f;
+    private float charge = 0f;
     private float shotCost = 1f;
 
     void Start() {
@@ -26,6 +27,7 @@ public class ShootController : MonoBehaviour {
             nextFire = Time.time + fireRate;
 
             Instantiate(shotPrefab, transform.position, transform.rotation);
+            AudioSource.PlayClipAtPoint(shotSound, gameObject.transform.position);
         }
     }
 

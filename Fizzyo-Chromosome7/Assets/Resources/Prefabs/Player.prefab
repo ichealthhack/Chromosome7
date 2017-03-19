@@ -144,13 +144,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shotPrefab: {fileID: 1729912120856732, guid: bbb84c81a83e892408aec642c9fe58e5, type: 2}
+  shotSound: {fileID: 8300000, guid: e7a1467378c084847a2eaf87f839ad21, type: 3}
   fireRate: 0.2
   maxParticleRate: 30
   maxChargeRate: 30
-  chargeRate: 1
   chargePS: {fileID: 198094807883488454}
   maxCharge: 10
-  charge: 0
 --- !u!198 &198094807883488454
 ParticleSystem:
   m_ObjectHideFlags: 1
