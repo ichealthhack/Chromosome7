@@ -3,18 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MissileController : MonoBehaviour {
-
 	public float speed;
-	private Rigidbody rb;
+	private Rigidbody2D rb2d;
 
-	// Use this for initialization
 	void Start () {
-		rb = GetComponent<Rigidbody> ();
-		rb.velocity = new Vector3 (speed,0,0);// ;
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+		rb2d = GetComponent<Rigidbody2D> ();
+		rb2d.velocity = new Vector2 (speed,0);
 	}
 }
