@@ -12,7 +12,7 @@ public class ShootController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (FizzyoDevice.Instance().ButtonDown() || Input.GetKeyDown(KeyCode.Space))
         {
            GameObject missile = (GameObject)Instantiate(missilePrefab, transform.position, transform.rotation);
         }
