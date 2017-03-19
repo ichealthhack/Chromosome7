@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Missile : MonoBehaviour {
+public class MissilePositionController : MonoBehaviour {
 
     Vector3 dir = new Vector3(0.1f,0,0);
     int age = 0;
