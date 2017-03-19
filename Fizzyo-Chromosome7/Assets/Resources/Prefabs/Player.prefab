@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4339905411545040}
   - component: {fileID: 212259028128615928}
   - component: {fileID: 95538840926203178}
+  - component: {fileID: 114691927533923320}
   m_Layer: 0
   m_Name: Spaceship
   m_TagString: Untagged
@@ -118,6 +119,19 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114691927533923320
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1007714052512278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6f7682ba497bb243afc3dfb5114cb9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  missilePrefab: {fileID: 1481622980470470, guid: 4b21e90a1a96e4825b367aab5891184b,
+    type: 2}
 --- !u!198 &198094807883488454
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -173,7 +187,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 549490445
+  randomSeed: 448969009
   InitialModule:
     serializedVersion: 3
     enabled: 1
