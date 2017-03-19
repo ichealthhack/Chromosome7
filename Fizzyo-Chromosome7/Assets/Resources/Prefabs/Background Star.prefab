@@ -53,7 +53,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColour: {r: 0.1102941, g: 0.1102941, b: 0.1102941, a: 0}
-  baseColourRatio: 0.9
+  baseColourRatio: 0.8
 --- !u!212 &212405975465163574
 SpriteRenderer:
   m_ObjectHideFlags: 1

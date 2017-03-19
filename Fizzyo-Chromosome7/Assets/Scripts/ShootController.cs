@@ -7,11 +7,15 @@ public class ShootController : MonoBehaviour {
     public float fireRate;
     private float nextFire;
 
+    public float maxChargeRate;
+    private float chargeRate;
+    public ParticleSystem chargePS;
+
     // Use this for initialization
     void Start () {
         fireRate = 0.2f;
         nextFire = 0.01f;
-	}
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -25,6 +29,11 @@ public class ShootController : MonoBehaviour {
             GameObject missile = (GameObject)Instantiate(missilePrefab, transform.position, transform.rotation);
             //Instantiate(missilePrefab, transform.position, transform.rotation);
         }
+    }
 
+    public void SetChargeEfficiency(float efficiency) {
+        chargeRate = efficiency * maxChargeRate;
+        var chargeEM = chargePS.emission;
+        chargeEM.rateOverTime = chargeRate;
     }
 }
