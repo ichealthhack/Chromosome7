@@ -17,6 +17,7 @@ public class LevelManager : MonoBehaviour {
         for(int i = 0; i < numBackgroundObjects; i++) {
             GameObject spawnedObject = Instantiate(bgoPrefab);
             spawnedObject.GetComponent<ParallaxObject>().UpdateSize(Random.Range(minBgoSize, maxBgoSize));
+            spawnedObject.transform.parent = transform;
         }
     }
 }

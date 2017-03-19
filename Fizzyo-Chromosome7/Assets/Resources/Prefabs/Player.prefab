@@ -69,7 +69,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1695921668316594}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.47, y: -0.47, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4339905411545040}
@@ -131,10 +131,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60328ca3b97654180b3708071dec14cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
-  maxY: 0
-  minY: 0
-  deltaT: 0
+  speed: 3
 --- !u!114 &114691927533923320
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -148,8 +145,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shotPrefab: {fileID: 1729912120856732, guid: bbb84c81a83e892408aec642c9fe58e5, type: 2}
   fireRate: 0.2
+  maxParticleRate: 30
   maxChargeRate: 30
+  chargeRate: 1
   chargePS: {fileID: 198094807883488454}
+  maxCharge: 10
+  charge: 0
 --- !u!198 &198094807883488454
 ParticleSystem:
   m_ObjectHideFlags: 1

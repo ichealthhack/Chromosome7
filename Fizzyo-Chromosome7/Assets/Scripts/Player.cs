@@ -5,22 +5,23 @@ using UnityEngine;
 public class Player : MonoBehaviour {
 	public float speed;
 
-	private float maxY;
+    private float maxBreath = 60f;
+
+    private float maxY;
 	private float minY;
 
 	private bool movingDown;
-	public float deltaT;
-	private float nextT;
 
     private ShootController shootController;
 
 	// Use this for initialization
 	void Start () {
-		speed = 0.1f;
-		maxY = WorldSpace.topBound - 1;
+        if(PlayerPrefs.HasKey("Max Fizzyo Pressure")) {
+            maxBreath = PlayerPrefs.GetFloat("Max Fizzyo Pressure");
+        }
+
+        maxY = WorldSpace.topBound - 1;
 		minY = WorldSpace.bottomBound + 1;
-		deltaT = 0.01f;
-		nextT = Time.time;
 		movingDown = true;
 		transform.position = new Vector2 (WorldSpace.leftBound + 1, WorldSpace.RandomY());
 
@@ -31,7 +32,15 @@ public class Player : MonoBehaviour {
 	void Update () {
         MovePlayer();
         HandleShooting();
+        HandleCharging();
 	}
+
+    private void HandleCharging() {
+        //TODO replace with a better algorithm
+        float breathingEfficiency = FizzyoDevice.Instance().Pressure();
+
+        shootController.SetChargeEfficiency(breathingEfficiency);
+    }
 
     private void HandleShooting() {
         if(Input.GetButton("Fire1")) {
@@ -40,23 +49,20 @@ public class Player : MonoBehaviour {
     }
 
     private void MovePlayer() {
-        if (Time.time > nextT) {
-            float newY;
+        float newY;
+        float dy = Time.deltaTime * speed;
 
-            if (movingDown)
-                newY = transform.position.y - speed;
-            else
-                newY = transform.position.y + speed;
+        if (movingDown)
+            newY = transform.position.y - dy;
+        else
+            newY = transform.position.y + dy;
 
-            transform.position = new Vector3(transform.position.x, newY, transform.position.z);
+        transform.position = new Vector3(transform.position.x, newY, transform.position.z);
 
-            if (newY < minY)
-                movingDown = false;
-            if (newY > maxY)
-                movingDown = true;
-
-            nextT = Time.time + deltaT;
-        }
+        if (newY < minY)
+            movingDown = false;
+        else if (newY > maxY)
+            movingDown = true;
     }
 }
 	
