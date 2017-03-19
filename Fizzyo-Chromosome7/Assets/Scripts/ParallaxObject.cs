@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ParallaxMove : MonoBehaviour {
-    public float size;
-    private float speed { get { return 1 + 1 / size; } }
+public class ParallaxObject : MonoBehaviour {
+    public Color baseColour;
+    public float baseColourRatio;
+    private float speed;
 
     private const float maxExtraDistance = 2;
     private float extraDistance;
@@ -13,16 +14,21 @@ public class ParallaxMove : MonoBehaviour {
     
 	void Start () {
         sr = GetComponent<SpriteRenderer>();
-        transform.localScale = size * Vector2.one;
 
         Generate();
         transform.position = WorldSpace.RandomPosition();
 	}
 
-    void Generate() {
+    public void UpdateSize(float size) {
+        transform.localScale = size * Vector2.one;
+        speed = 1 + (17 * size);
+    }
+
+    private void Generate() {
         transform.position = WorldSpace.RandomRHS();
         
-        Color newColour = 0.8f * Random.ColorHSV();
+        Color newColour = (1f - baseColourRatio) * Random.ColorHSV()
+                          + baseColourRatio * baseColour;
         newColour.a = 1.0f;
         sr.color = newColour;
 
